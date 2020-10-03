@@ -26,7 +26,7 @@ func GetLogger(logFile string, pac string) *Logger {
 
 	dc := &lumberjack.Logger{
 		Filename:   logFile,
-		MaxSize:    1,
+		MaxSize:    1000,
 		MaxBackups: 3,
 		MaxAge:     28,
 	}
