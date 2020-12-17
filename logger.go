@@ -8,10 +8,12 @@ import (
 	"os"
 )
 
-const DEBUG = "DEBUG"
-const INFO = "INFO"
-const WARN = "WARN"
-const ERROR = "ERROR"
+const (
+	DEBUG = "DEBUG"
+	INFO  = "INFO"
+	WARN  = "WARN"
+	ERROR = "ERROR"
+)
 
 type Logger struct {
 	Out *log.Logger
