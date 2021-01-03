@@ -9,10 +9,10 @@ import (
 )
 
 const (
-	DEBUG = "DEBUG"
-	INFO  = "INFO"
-	WARN  = "WARN"
-	ERROR = "ERROR"
+	debug = "DEBUG"
+	info  = "INFO"
+	warn  = "WARN"
+	err = "ERROR"
 )
 
 type Logger struct {
@@ -57,42 +57,42 @@ func GetLoggerWithConfig(pac string, c *lumberjack.Logger) *Logger {
 }
 
 func (l Logger) Debug(msg string) {
-	l.Out.SetPrefix(fmt.Sprintf("[%s] [%s] ", DEBUG, l.pkg))
+	l.Out.SetPrefix(fmt.Sprintf("[%s] [%s] ", debug, l.pkg))
 	l.Out.Print(msg)
 }
 
 func (l Logger) Debugf(msg string, v ...interface{}) {
-	l.Out.SetPrefix(fmt.Sprintf("[%s] [%s] ", DEBUG, l.pkg))
+	l.Out.SetPrefix(fmt.Sprintf("[%s] [%s] ", debug, l.pkg))
 	l.Out.Printf(msg, v...)
 }
 
 func (l Logger) Info(msg string) {
-	l.Out.SetPrefix(fmt.Sprintf("[%s] [%s] ", INFO, l.pkg))
+	l.Out.SetPrefix(fmt.Sprintf("[%s] [%s] ", info, l.pkg))
 	l.Out.Print(msg)
 }
 
 func (l Logger) Infof(msg string, v ...interface{}) {
-	l.Out.SetPrefix(fmt.Sprintf("[%s] [%s] ", INFO, l.pkg))
+	l.Out.SetPrefix(fmt.Sprintf("[%s] [%s] ", info, l.pkg))
 	l.Out.Printf(msg, v...)
 }
 
 func (l Logger) Warn(msg string) {
-	l.Out.SetPrefix(fmt.Sprintf("[%s] [%s] ", WARN, l.pkg))
+	l.Out.SetPrefix(fmt.Sprintf("[%s] [%s] ", warn, l.pkg))
 	l.Out.Print(msg)
 }
 
 func (l Logger) Warnf(msg string, v ...interface{}) {
-	l.Out.SetPrefix(fmt.Sprintf("[%s] [%s] ", WARN, l.pkg))
+	l.Out.SetPrefix(fmt.Sprintf("[%s] [%s] ", warn, l.pkg))
 	l.Out.Printf(msg, v...)
 }
 
 func (l Logger) Error(msg string) {
-	l.Out.SetPrefix(fmt.Sprintf("[%s] [%s] ", ERROR, l.pkg))
+	l.Out.SetPrefix(fmt.Sprintf("[%s] [%s] ", err, l.pkg))
 	l.Out.Print(msg)
 }
 
 func (l Logger) Errorf(msg string, v ...interface{}) {
-	l.Out.SetPrefix(fmt.Sprintf("[%s] [%s] ", ERROR, l.pkg))
+	l.Out.SetPrefix(fmt.Sprintf("[%s] [%s] ", err, l.pkg))
 	l.Out.Printf(msg, v...)
 }
 
